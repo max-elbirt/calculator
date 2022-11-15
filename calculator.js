@@ -56,7 +56,7 @@ for (let button of buttons) {
             console.log("num digits is: " + num_digits);
         }
 
-        else if (digits.includes(button.getAttribute("value"))){
+        else if (digits.includes(button.getAttribute("value")) && num2 !== null){
             num_digits = button.getAttribute("value");
             num2 = num2 + num_digits;
             document.getElementById("display").setAttribute("value", num1 + operator + num2);
@@ -64,6 +64,31 @@ for (let button of buttons) {
             console.log(num1);
             console.log(num_digits);
             console.log(num2);
+        }
+
+        else if (operators.includes(button.getAttribute("value")) && num2 !== null){
+
+            // Math Function Calls
+            if (operator === "+") {
+                document.getElementById("display").setAttribute("value", add(num1, num2));
+                num1 = add(num1, num2);
+            } 
+            else if (operator === "-") {
+                document.getElementById("display").setAttribute("value", subtract(num1, num2));
+                num1 = subtract(num1, num2);
+            } 
+            else if (operator === "*") {
+                document.getElementById("display").setAttribute("value", multiply(num1, num2));
+                num1 = multiply(num1, num2);
+            } 
+            else if (operator === "/") {
+                document.getElementById("display").setAttribute("value", divide(num1, num2));
+                num1 = divide(num1, num2);
+            }
+
+            operator = button.getAttribute("value")
+            num2 = null
+
         }
 
         // Math Function Calls
