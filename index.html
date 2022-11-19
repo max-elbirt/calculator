@@ -5,44 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Max's Calculator</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="calc_container">
-        <button type="button" value="+" id="add" class="button">+</button>
-        <button type="button" value="-" id="subtract" class="button">-</button>
-        <button type="button" value="*" id="multiply" class="button">&times;</button>
-        <button type="button" value="/" id="divide" class="button">&divide;</button>
-        <button type="button" value="=" id="equal" class="button">=</button>
-        <button type="button" value="redo" id="redo" class="button">redo</button>
-        <button type="button" value="settings" id="settings" class="button">settings</button>
+    <div class="wrapper">
+        <div class="op_container">operations log</div>
+        <div class="calc_container">
+            <button type="button" value="+" id="add" class="button">+</button>
+            <button type="button" value="-" id="subtract" class="button">-</button>
+            <button type="button" value="*" id="multiply" class="button">&times;</button>
+            <button type="button" value="/" id="divide" class="button">&divide;</button>
+            <button type="button" value="=" id="equal" class="button">=</button>
+            <button type="button" value="redo" id="redo" class="button">redo</button>
+            <button type="button" value="settings" id="settings" class="button">settings</button>
 
-        <button type="button" value="header" id="header">My Calculator</button>
-        <input type="text" id="display" value="0" disabled />
-        <button type="button" value="clear" id="clear" class="button">C</button>
+            <button type="button" value="header" id="header">My Calculator</button>
+            <input type="text" id="display" value="0" disabled />
+            <button type="button" value="clear" id="clear" class="button">C</button>
 
-        <button type="button" value="7" id="seven" class="nums">7</button>
-        <button type="button" value="8" id="eight" class="nums">8</button>
-        <button type="button" value="9" id="nine" class="nums">9</button>
-        <button type="button" value="4" id="four" class="nums">4</button>
-        <button type="button" value="5" id="five" class="nums">5</button>
-        <button type="button" value="6" id="six" class="nums">6</button>
-        <button type="button" value="1" id="one" class="nums">1</button>
-        <button type="button" value="2" id="two" class="nums">2</button>
-        <button type="button" value="3" id="three" class="nums">3</button>
-        <button type="button" value="0" id="zero" class="nums">0</button>
-        <button type="button" value="decimal" id="decimal" class="nums">.</button>
-        
-        <button type="round" value="round" id="round" class="button">round</button>
-        <button type="about" value="about" id="about" class="button">i</button>
-        <button type="ligtbulb" value="lightbulb" id="lightbulb" class="button">lightbulb</button>
-        <button type="return_round" value="return_round" id="return_round" class="button">return round</button>
-        <button type="sqrt" value="sqrt" id="sqrt" class="button">sqrt</button>
-        <button type="cloud" value="cloud" id="cloud" class="button">cloud</button>
-        <button type="button" id="empty1" class="button"></button>
-        <button type="button" id="empty2" class="button"></button>
-    
+            <button type="button" value="7" id="seven" class="nums">7</button>
+            <button type="button" value="8" id="eight" class="nums">8</button>
+            <button type="button" value="9" id="nine" class="nums">9</button>
+            <button type="button" value="4" id="four" class="nums">4</button>
+            <button type="button" value="5" id="five" class="nums">5</button>
+            <button type="button" value="6" id="six" class="nums">6</button>
+            <button type="button" value="1" id="one" class="nums">1</button>
+            <button type="button" value="2" id="two" class="nums">2</button>
+            <button type="button" value="3" id="three" class="nums">3</button>
+            <button type="button" value="0" id="zero" class="nums">0</button>
+            <button type="button" value="decimal" id="decimal" class="nums">.</button>
+            
+            <button type="round" value="round" id="round" class="button">round</button>
+            <button type="about" value="about" id="about" class="button">i</button>
+            <button type="ligtbulb" value="lightbulb" id="lightbulb" class="button">lightbulb</button>
+            <button type="return_round" value="return_round" id="return_round" class="button">return round</button>
+            <button type="sqrt" value="sqrt" id="sqrt" class="button">sqrt</button>
+            <button type="cloud" value="cloud" id="cloud" class="button">cloud</button>
+            <button type="button" id="empty1" class="button"></button>
+            <button type="button" id="empty2" class="button"></button>
+        </div>
+
+        <div class="sci_container">scientific</div>
     </div>
-    <link rel="stylesheet" href="styles.css">
     <!-- <script src="script.js"></script> -->
     <script src="calculator.js"></script>
 </body>
