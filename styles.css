@@ -42,12 +42,71 @@ button:active {
   background-color: aliceblue;
 }
 
+button.sciOn {
+  background-color: #CF649A;
+  transition-duration: 10ms;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+button.sciOn:hover {
+  background-color: aquamarine;
+}
+button.sciOn:active {
+  background-color: aliceblue;
+}
+
+button.sciOff {
+  background-color: #D9E2F3;
+  transition-duration: 10ms;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+button.sciOff:hover {
+  background-color: aquamarine;
+}
+button.sciOff:active {
+  background-color: aliceblue;
+}
+
+input#display.lightOn {
+  background-color: #F0F182;
+}
+
+button.lightOn {
+  background-color: #CF649A;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+button.lightOn:hover {
+  background-color: aquamarine;
+}
+button.lightOn:active {
+  background-color: aliceblue;
+}
+
+input#display.lightOff {
+  background-color: #D9E2F3;
+}
+
+button.lightOff {
+  background-color: #D9E2F3;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+button.lightOff:hover {
+  background-color: aquamarine;
+}
+button.lightOff:active {
+  background-color: aliceblue;
+}
+
 .calc_container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(7, 1fr);
   width: 100%;
   order: 1;
+  flex-grow: 1;
 }
 .calc_container #equal {
   grid-column: 3/4;
@@ -160,15 +219,17 @@ button:active {
 div.op_container {
   background-color: #D0CECE;
   width: 100%;
-  height: 20%;
   order: 2;
+  flex-grow: 1;
+  height: 43.5%;
 }
 
 div.sci_container {
   background-color: #E2EFD9;
   width: 100%;
-  height: 20%;
   order: 3;
+  flex-grow: 1;
+  height: 43.5%;
 }
 
 @media only screen and (min-width: 950px) {
