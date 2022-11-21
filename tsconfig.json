@@ -1,0 +1,8 @@
+{
+        "compilerOptions": {
+        "outDir": "./js",
+        "target": "ES2021",
+        "lib": ["dom", "ES2021"],
+        "watch": true
+        },
+}
