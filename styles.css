@@ -18,9 +18,10 @@ div.wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   width: 100%;
-  height: 100%;
+  height: 53%;
+  margin: 0, auto;
 }
 
 button {
@@ -70,6 +71,12 @@ button.sciOff:active {
 
 input#display.lightOn {
   background-color: #F0F182;
+  grid-column: 2/5;
+  grid-row: 2/3;
+  text-align: center;
+  border-color: #000000;
+  border-width: 5px;
+  font-size: x-large;
 }
 
 button.lightOn {
@@ -84,8 +91,14 @@ button.lightOn:active {
   background-color: aliceblue;
 }
 
-input#display.lightOff {
+#display.lightOff {
   background-color: #D9E2F3;
+  grid-column: 2/5;
+  grid-row: 2/3;
+  text-align: center;
+  border-color: #000000;
+  border-width: 5px;
+  font-size: x-large;
 }
 
 button.lightOff {
@@ -100,119 +113,115 @@ button.lightOff:active {
   background-color: aliceblue;
 }
 
-.calc_container {
+div.calc_container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(7, 1fr);
   width: 100%;
+  height: 100%;
   order: 1;
   flex-grow: 1;
 }
-.calc_container #equal {
+div.calc_container #equal {
   grid-column: 3/4;
   grid-row: 7/8;
 }
-.calc_container #header {
+div.calc_container #header {
   grid-column: 2/5;
   grid-row: 1/2;
 }
-.calc_container #display {
-  grid-column: 2/5;
-  grid-row: 2/3;
-  background-color: #D5DCE4;
-  text-align: center;
-  border-color: #000000;
-  border-width: 5px;
-  font-size: x-large;
-}
-.calc_container #clear {
+div.calc_container #clear {
   grid-column: 2/5;
   grid-row: 3/4;
 }
-.calc_container #seven {
+div.calc_container #seven {
   grid-column: 2/3;
   grid-row: 4/5;
 }
-.calc_container #eight {
+div.calc_container #eight {
   grid-column: 3/4;
   grid-row: 4/5;
 }
-.calc_container #nine {
+div.calc_container #nine {
   grid-column: 4/5;
   grid-row: 4/5;
 }
-.calc_container #four {
+div.calc_container #four {
   grid-column: 2/3;
   grid-row: 5/6;
 }
-.calc_container #five {
+div.calc_container #five {
   grid-column: 3/4;
   grid-row: 5/6;
 }
-.calc_container #six {
+div.calc_container #six {
   grid-column: 4/5;
   grid-row: 5/6;
 }
-.calc_container #one {
+div.calc_container #one {
   grid-column: 2/3;
   grid-row: 6/7;
 }
-.calc_container #two {
+div.calc_container #two {
   grid-column: 3/4;
   grid-row: 6/7;
 }
-.calc_container #three {
+div.calc_container #three {
   grid-column: 4/5;
   grid-row: 6/7;
 }
-.calc_container #round {
+div.calc_container #round {
   grid-column: 2/3;
   grid-row: 7/8;
 }
-.calc_container #zero {
+div.calc_container #zero {
   grid-column: 3/4;
   grid-row: 7/8;
 }
-.calc_container #decimal {
+div.calc_container #decimal {
   grid-column: 4/5;
   grid-row: 7/8;
 }
-.calc_container #settings {
+div.calc_container #settings {
   grid-column: 5/6;
   grid-row: 1/2;
 }
-.calc_container #redo {
+div.calc_container #redo {
   grid-column: 5/6;
   grid-row: 2/3;
 }
-.calc_container #divide {
+div.calc_container #divide {
   grid-column: 5/6;
   grid-row: 3/4;
 }
-.calc_container #multiply {
+div.calc_container #multiply {
   grid-column: 5/6;
   grid-row: 4/5;
 }
-.calc_container #subtract {
+div.calc_container #subtract {
   grid-column: 5/6;
   grid-row: 5/6;
 }
-.calc_container #add {
+div.calc_container #add {
   grid-column: 5/6;
   grid-row: 6/7;
 }
-.calc_container #equal {
+div.calc_container #equal {
   grid-column: 5/6;
   grid-row: 7/8;
 }
-.calc_container .nums {
+div.calc_container #history {
+  grid-column: 1/2;
+  grid-row: 3/4;
+}
+div.calc_container .nums {
   background-color: #F2F2F2;
   transition-duration: 10ms;
 }
-.calc_container .nums:hover {
+div.calc_container .nums:hover {
   background-color: lightgray;
 }
-.calc_container .nums:active {
+div.calc_container .nums:active {
   background-color: gray;
 }
 
@@ -221,7 +230,7 @@ div.op_container {
   width: 100%;
   order: 2;
   flex-grow: 1;
-  height: 43.5%;
+  height: 100%;
 }
 
 div.sci_container {
@@ -229,7 +238,15 @@ div.sci_container {
   width: 100%;
   order: 3;
   flex-grow: 1;
-  height: 43.5%;
+  height: 100%;
+}
+
+body.dark button {
+  background-color: gray;
+  color: white;
+}
+body.dark button.nums {
+  background-color: lightgray;
 }
 
 @media only screen and (min-width: 950px) {
