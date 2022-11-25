@@ -3,6 +3,7 @@
         "outDir": "./js",
         "target": "ES2021",
         "lib": ["dom", "ES2021"],
+        "moduleResolution":"node",
         "watch": true
         },
 }

@@ -1,12 +1,14 @@
 type stateObj = {
     light: boolean;
     opLog: boolean;
+    remote: boolean
 }
 
 
 let state: stateObj = {
     light: false,
     opLog: false,
+    remote: false,
 }
 
 
@@ -97,6 +99,17 @@ document.querySelector("button#history.button").addEventListener("click", () =>{
     }
 })
 
+//remote button event
+document.querySelector("button#cloud.button").addEventListener("click", () => {
+    if (state.remote === false) {
+        console.log("turning on");
+        remoteOn();
+    }
+    else {
+        remoteOff();
+    }
+})
+
 
 
 //form data received event
@@ -166,6 +179,16 @@ function OpLogOff() {
     state = {...state,opLog: false};
 }
 
+function remoteOn() {
+    state = {...state, remote: true};
+    console.log(state);
+}
+
+function remoteOff() {
+    state = {...state, remote: false};
+    console.log(state);
+}
+
 
 
 
@@ -224,7 +247,7 @@ function redoLast() {
     }
     else if (calcState.op1 === "" && calcState.num1 !== "") {
         console.log("redoing num1");
-        calcState.num1 = calcState.num1.substring(0, calcState.num1.length-1);
+        calcState.num1 = String(calcState.num1).substring(0, String(calcState.num1).length-1);
     }
 
     render()

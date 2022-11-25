@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-ts": "tsc TS/calculator.ts TS/application.ts " 
+    "build-ts": "tsc TS/calculator.ts TS/application.ts "
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,8 @@
   "homepage": "https://github.com/max-elbirt/calculator#readme",
   "dependencies": {
     "http-server": "^14.1.1",
+    "math.js": "^1.1.46",
+    "mathjs": "^11.4.0",
     "scss": "^0.2.4"
   },
   "devDependencies": {
