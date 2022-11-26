@@ -4,6 +4,7 @@ let digits = "0123456789";
 let operators = "+-*/";
 let sciOps = "sqrtroot**2**modpi";
 let display = document.querySelector("input#display");
+let tempResult = "";
 const pi = Math.PI.toFixed(2);
 let calcState = {
     scientific: false,
@@ -102,19 +103,17 @@ function calcSimple(x) {
     //outputting result when = is pressed
     else if (x.value === "=") {
         writeToLog();
-        console.log("calculating");
         if (state.remote === false) {
             calcState.num1 = evalExp();
         }
         else if (state.remote === true) {
-            ;
-            (async () => {
-                let answer = await remotCalc();
-                calcState.num1 = answer;
-            })();
+            remoteCalc().then(res => { display.value = res; });
+            calcState.num1 = display.value;
         }
         ;
         // calcState.num1 = tokenStackCalculatorSimple(calcState.num1, calcState.op1, calcState.num2, calcState.op2, calcState.num3); 
+        console.log(tempResult);
+        calcState.num1 = tempResult;
         calcState.num2 = "";
         calcState.op1 = "";
         writeToLog();
@@ -124,12 +123,12 @@ function calcSimple(x) {
     else if (operators.includes(x.value) && calcState.num2 !== "") {
         calcState.evaluator = x.value;
         writeToLog();
-        console.log("calculating result so far");
         if (state.remote === false) {
             calcState.num1 = evalExp();
         }
         else if (state.remote === true) {
-            calcRemote();
+            remoteCalc().then(res => { display.value = res; });
+            calcState.num1 = display.value;
         }
         ;
         // calcState.num1 = String(tokenStackCalculatorSimple(calcState.num1, calcState.op1, calcState.num2, calcState.op2, calcState.num3));
@@ -297,10 +296,9 @@ function sciOpCalc2(o, x) {
         }
     }
 }
-const remotCalc = async () => {
-    console.log("calc remote started");
-    const expression = calcState.num1 + calcState.op1 + calcState.num2 + calcState.op2 + calcState.num3;
-    const response = await fetch("https://api.mathjs.org/v4/?expr=" + encodeURIComponent(expression));
-    const answer = await response.text();
+const remoteCalc = async () => {
+    let expression = calcState.num1 + calcState.op1 + calcState.num2 + calcState.op2 + calcState.num3;
+    let response = await fetch("https://api.mathjs.org/v4/?expr=" + encodeURIComponent(expression));
+    let answer = await response.text();
     return answer;
 };
