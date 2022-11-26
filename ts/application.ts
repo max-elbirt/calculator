@@ -1,7 +1,8 @@
 type stateObj = {
     light: boolean;
     opLog: boolean;
-    remote: boolean
+    remote: boolean;
+    popup: boolean;
 }
 
 
@@ -9,6 +10,7 @@ let state: stateObj = {
     light: false,
     opLog: false,
     remote: false,
+    popup: false,
 }
 
 
@@ -109,6 +111,32 @@ document.querySelector("button#cloud.button").addEventListener("click", () => {
         remoteOff();
     }
 })
+
+//about button event
+document.querySelector("button#about.button").addEventListener("click", () => {
+    if (!state.popup){
+        createPopup()
+    }
+
+    else{
+        removePopup()
+    }
+})
+
+function createPopup() {
+    state.popup = true;
+    const popDiv = document.createElement("div")
+    popDiv.className = "popup";
+    popDiv.innerHTML="Max Elbirt<br>V 1.0.0<br>A scientific calculator";
+    wrapper.appendChild(popDiv);
+}
+
+function removePopup() {
+    const popDiv = document.querySelector("div.popup")
+    popDiv.remove();
+    state.popup = false;
+} 
+
 
 
 

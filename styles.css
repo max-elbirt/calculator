@@ -20,7 +20,7 @@ div.wrapper {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 53%;
+  height: 100%;
   margin: 0, auto;
 }
 
@@ -250,7 +250,7 @@ div.sci_container {
   width: 100%;
   order: 3;
   flex-grow: 1;
-  height: 100%;
+  height: 80%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -262,6 +262,18 @@ div.sci_container button {
 div.sci_container img {
   height: 90%;
   width: 90%;
+}
+
+div.popup {
+  width: 25vh;
+  height: 20vh;
+  font-size: x-large;
+  text-align: center;
+  vertical-align: middle;
+  background-color: beige;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 2;
 }
 
 body.dark button {
@@ -278,16 +290,18 @@ body.dark button.nums {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-top: 20vh;
     margin-bottom: auto;
   }
   div.op_container {
     order: 1;
+    height: 80vh;
   }
   div.calc_container {
     order: 2;
+    height: 80vh;
   }
   div.sci_container {
     order: 3;
+    height: 26.33vh;
   }
 }/*# sourceMappingURL=styles.css.map */

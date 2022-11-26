@@ -19,7 +19,7 @@ div.wrapper{
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 53%;
+    height: 100%;
     margin: 0, auto;
     
 }
@@ -256,8 +256,6 @@ div.calc_container{
 
     .nums:hover{
         background-color: lightgray;
-
-
     }
 
     .nums:active{
@@ -271,7 +269,7 @@ div.op_container{
     order: 2;
     flex-grow: 1;
     height: 100%;
-    font-size:x-large;
+    font-size: x-large;
     border-radius: 5px;
 
     display: flex;
@@ -286,7 +284,7 @@ div.sci_container{
     width: 100%;
     order: 3;
     flex-grow: 1;
-    height: 100%;
+    height: 80%;
 
     display: flex;
     flex-direction: column;
@@ -301,6 +299,18 @@ div.sci_container{
         height: 90%;
         width: 90%;
     }
+}
+
+div.popup{
+    width: 25vh;
+    height: 20vh;
+    font-size: x-large;
+    text-align: center;
+    vertical-align: middle;
+    background-color: beige;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 2;
 }
 
 //dark mode
@@ -321,19 +331,21 @@ body.dark{
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        margin-top: 20vh;
         margin-bottom: auto;
     }
 
     div.op_container{
         order: 1;
+        height: 80vh;
     }
 
     div.calc_container{
         order: 2;
+        height: 80vh;
     }
 
     div.sci_container{
         order: 3;
+        height: 26.33vh;
     }
 }
