@@ -116,7 +116,7 @@ function evalExp() {
 };
 //function inserts operation record into the calcState object under log (utilized later on aswell)
 function writeToLog() {
-    calcState.log += calcState.num1 + calcState.op1 + calcState.num2 + calcState.op2 + calcState.num3 + calcState.evaluator + "<br>"
+    calcState.log += calcState.num1 + calcState.op1 + calcState.num2 + calcState.op2 + calcState.num3 + "=" + "<br>"
 }
 
 
@@ -143,8 +143,6 @@ function calcSimple(x: HTMLButtonElement) {
         if (state.remote === false){calcState.num1  = evalExp()}
         else if (state.remote === true){remoteCalc().then(res => {display.value = res});calcState.num1 = display.value};
         // calcState.num1 = tokenStackCalculatorSimple(calcState.num1, calcState.op1, calcState.num2, calcState.op2, calcState.num3); 
-        console.log(tempResult);
-        calcState.num1 = tempResult;
         calcState.num2 = "";
         calcState.op1 = "";
         writeToLog();
@@ -152,7 +150,6 @@ function calcSimple(x: HTMLButtonElement) {
     }
 //outputting result when an operator is pressed after num2
     else if (operators.includes(x.value) && calcState.num2 !== "") {
-        calcState.evaluator = x.value;
         writeToLog();
         if (state.remote === false){calcState.num1 = evalExp()}
         else if (state.remote === true){remoteCalc().then(res => {display.value = res}); calcState.num1 = display.value};
@@ -175,6 +172,7 @@ function calcSimple(x: HTMLButtonElement) {
 };
 
 
+//---------------------------------------------------------------------------------------------------------------------------------
 
 
 //calc function for scientific mode
@@ -221,32 +219,41 @@ function calcScientific(x: HTMLButtonElement) {
 //outputting result when = is pressed
     else if (x.value === "=") {
         writeToLog();
-        console.log("calculating");
-        calcState.num1 = evalExp();
+        if (state.remote === false){calcState.num1 = evalExp()}
+        else if (state.remote === true){remoteCalc().then(res => {display.value = res}); calcState.num1 = display.value};
         calcState.num2 = "";
         calcState.num3 = "";
         calcState.op1 = "";
         calcState.op2 = "";
+        writeToLog();
         writeToOpLog();
     }
 //outputting result when operator is pressed after num3
     else if (operators.includes(x.value) && calcState.num3 !== "") {
         writeToLog();
-        console.log("calculating result after num3");
-        calcState.num1 = evalExp();
+        if (state.remote === false){calcState.num1 = evalExp()}
+        else if (state.remote === true){remoteCalc().then(res => {display.value = res}); calcState.num1 = display.value};
         calcState.num2 = "";
         calcState.num3 = "";
         calcState.op2 = "";
         calcState.op1 = x.value;
+        writeToLog();
         writeToOpLog();
     }
 
-//entering and exiting sci op mode
+//entering and exiting sci op mode for op1
     else if (sciOps.includes(calcState.op1) && calcState.num1 !== "" && calcState.num2 === "") {
         calcState.sciOp = true;
         calcState.op1 = x.value;
-        sciOpCalc1(calcState.op1, x)
+        sciOpCalc1(calcState.op1, x);
     } 
+
+//entering and exiting sci op mode for op2
+else if (sciOps.includes(calcState.op2) && calcState.num2 !== "" && calcState.num3 === "") {
+    calcState.sciOp = true;
+    calcState.op2 = x.value;
+    sciOpCalc2(calcState.op1, x);
+} 
 
 //add decimal to first number
     else if (x.value === "decimal" && calcState.num2 === "" && String(calcState.num1).indexOf(".") === -1) {
@@ -267,13 +274,6 @@ function calcScientific(x: HTMLButtonElement) {
 function sciOpCalc1(o: string, x: HTMLButtonElement) {
     console.log("entering sciOpCalc1");
     switch (o) {
-        case "^2" :{
-            console.log("entering square");
-            calcState.num1 = Math.pow(Number(calcState.num1), 2);
-            console.log("exiting SciOpmode")
-            calcState.sciOp = false;
-            break;
-        }
         case "sqrt" :{
             console.log("entering sqrt");
             calcState.num1 = Math.sqrt(Number(calcState.num1));
@@ -299,15 +299,7 @@ function sciOpCalc1(o: string, x: HTMLButtonElement) {
 
 
 function sciOpCalc2(o: string, x: HTMLButtonElement) {
-    console.log("entering sciOpCalc1");
     switch (o) {
-        case "^2" :{
-            console.log("entering square");
-            calcState.num1 = Math.pow(Number(calcState.num1), 2);
-            console.log("exiting SciOpmode")
-            calcState.sciOp = false;
-            break;
-        }
         case "sqrt" :{
             console.log("entering sqrt");
             calcState.num1 = Math.sqrt(Number(calcState.num1));
@@ -332,7 +324,7 @@ function sciOpCalc2(o: string, x: HTMLButtonElement) {
 }
 
 const remoteCalc = async () => {
-    let expression = calcState.num1 + calcState.op1 + calcState.num2 + calcState.op2 + calcState.num3;
+    let expression = (calcState.num1 + calcState.op1 + calcState.num2 + calcState.op2 + calcState.num3).replace("**", "^");
     let response = await fetch("https://api.mathjs.org/v4/?expr=" + encodeURIComponent(expression))
     let answer = await response.text();
     return answer;

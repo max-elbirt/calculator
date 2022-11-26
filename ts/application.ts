@@ -301,20 +301,7 @@ function render() {
     }
     console.log("rendering display")
     //rendering the display continuosly
-    display.value = calcState.num1 + calcState.op1 + calcState.num2 + calcState.op2 + calcState.num3;
-
-    //needs connection to log button, no css yet
-    // if (state.opLog === false) {
-    //     console.log("removing op log");
-    //     opLog.className = "logOff";
-    // }
-
-    // if (state.opLog === true) {
-    //     console.log("initializing op log");
-    //     opLog.className = "logOn";
-    
-    // this needs fixing create functions to remove op log,,,,,,
-
+    display.value =(calcState.num1 + calcState.op1 + calcState.num2 + calcState.op2 + calcState.num3).replace("**", "^");
 
 }
 
