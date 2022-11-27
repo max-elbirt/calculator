@@ -7,6 +7,7 @@ let display = document.querySelector("input#display") as HTMLInputElement | null
 let tempResult = "";
 const pi = Math.PI.toFixed(2);
 //
+//
 type stateCalcObj = {
     scientific: boolean,
     sciOp: boolean,
