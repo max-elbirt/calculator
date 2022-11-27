@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Max's Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="op_container">operations log</div>
+            <div class="calc_container">
+            <button type="button" value="+" id="add" class="button">+</button>
+            <button type="button" value="-" id="subtract" class="button">-</button>
+            <button type="button" value="*" id="multiply" class="button">&times;</button>
+            <button type="button" value="/" id="divide" class="button">&divide;</button>
+            <button type="button" value="=" id="equal" class="button">=</button>
+            <button type="button" value="redo" id="redo" class="button"><img src="assets/back.svg" style="height: 50%; width: 50%"></button>
+            <button type="button" value="settings" id="settings" class="button"><a href="/config.html"><img src="assets/settings.svg" style="height: 50%; width: 50%"></a></button>
+
+            <button type="button" value="header" id="header">My Calculator</button>
+            <input type="text" id="display" value="0" disabled />
+            <button type="button" value="clear" id="clear" class="button" style="font-weight: bold;">C</button>
+
+            <button type="button" value="7" id="seven" class="nums">7</button>
+            <button type="button" value="8" id="eight" class="nums">8</button>
+            <button type="button" value="9" id="nine" class="nums">9</button>
+            <button type="button" value="4" id="four" class="nums">4</button>
+            <button type="button" value="5" id="five" class="nums">5</button>
+            <button type="button" value="6" id="six" class="nums">6</button>
+            <button type="button" value="1" id="one" class="nums">1</button>
+            <button type="button" value="2" id="two" class="nums">2</button>
+            <button type="button" value="3" id="three" class="nums">3</button>
+            <button type="button" value="0" id="zero" class="nums">0</button>
+            <button type="button" value="decimal" id="decimal" class="nums">.</button>
+
+            <button type="round" value="round" id="round" class="button">round</button>
+            <button type="about" value="about" id="about" class="button"><img src="assets/info.svg" style="height: 50%; width: 50%"></button>
+            <button type="button" value="lightbulb" id="lightbulb" class="button"><img src="assets/light.svg" style="height: 50%; width: 50%"></button>
+            <button type="button" value="scientific" id="scientific" class="button"><img src="assets/nthRoot.svg" style="height: 50%; width: 50%"></button>
+            <button type="button" value="history" id="history" class="button"><img src="assets/history.svg" style="height: 50%; width: 50%"></button>
+            <button type="button" value="cloud" id="cloud" class="button"><img src="assets/cloud.png" style="height: 50%; width: 50%"></button>
+            <button type="button" value="empty" id="empty1" class="button"></button>
+            <button type="button" value="empty" id="empty2" class="button"></button>
+            </div>
+
+            <div class="sci_container">
+            <button type="button" value="**" id="power" class="button" style="font-weight: bold; font-size:x-large">X&#8319</button>
+            <button type="button" value="**2" id="square" class="button" style="font-weight: bold;">X&#178</button>
+            <button type="button" value="sqrt" id="sqrt" class="button" style="font-weight: bold; font-size:x-large">&#8730</button>
+            <button type="button" value="root" id="root" class="button"><img src="assets/nthRoot.svg"></button>
+            <button type="button" value="mod" id="mod" class="button" style="font-weight: bold; font-size:x-large">mod</button>
+            <button type="button" value="pi" id="pi" class="button" style="font-weight: bold; font-size:x-large">&#960</button>
+            </div>
+
+    </div>
+    <!-- <script src="script.js"></script> -->
+    <script src="calculator.js"></script>
+    <script src="application.js"></script>
+</body>
+</html>
