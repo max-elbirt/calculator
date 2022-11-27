@@ -5,7 +5,7 @@ type stateObj = {
     remote: boolean;
     popup: boolean;
 }
-
+//
 
 let state: stateObj = {
     light: false,
