@@ -1,3 +1,4 @@
+//
 let state = {
     light: false,
     opLog: false,
