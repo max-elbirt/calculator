@@ -1,3 +1,4 @@
+// cr types should be CamelCased (StateObj)
 type stateObj = {
     light: boolean;
     opLog: boolean;
@@ -17,6 +18,7 @@ let state: stateObj = {
 
 
 //important object
+// CR prefer functions over variables
 
 let lightButt = document.querySelector("#lightbulb") as HTMLElement;
 
@@ -30,17 +32,46 @@ let OpLogButt = document.querySelector("button#history.button") as HTMLElement
 
 let wrapper = document.querySelector("div.wrapper") as HTMLElement;
 
-
+// CR prefer this one
+// const getWrapper = () => document.querySelector("div.wrapper") as HTMLElement;
 
 
 
 //event listeners
 
 //DOM load rendering
+// cr merge the 2 Dom content loaded
 document.addEventListener("DOMContentLoaded", () => {
     console.log("render initializing");
     render();
 })
+
+
+// CR example for small functions
+// function myClick(selector: string, fn: () => void) {
+//     (document.querySelector(selector) as HTMLElement).addEventListener('click', fn);
+// }
+
+// myClick("#lightbulb", () => {ß
+//    // do something
+//     render();
+// });
+
+// ********* START
+// copy for CR about global vars
+// function someAction(s: stateObj): stateObj {
+//     return  {...state,light: true};
+// }
+//
+//
+// document.querySelector("selector").addEventListener("click", () => {
+//
+//     // new state = action(old state)
+//     state  = someAction(state);
+//     // render
+//     render(state);
+// })
+// ********* END
 
 
 //light button event
@@ -48,6 +79,7 @@ document.querySelector("#lightbulb").addEventListener("click", () => {
     console.log("light button pressed");
     if (state.light === false) {
         lightOn();
+        // cr call render out of the condition
         render();
     }
     else {
@@ -59,6 +91,10 @@ document.querySelector("#lightbulb").addEventListener("click", () => {
 
 //Scientific button event
 document.querySelector("button#scientific.button").addEventListener("click", () => {
+    // CR another way to write the same solution:
+    // calcState.scientific === false ? calcToScientific() : calcToSimple();
+    // render();
+
     console.log("scientific button pressed");
     if (calcState.scientific === false) {
         calcToScientific();
@@ -117,13 +153,13 @@ document.querySelector("button#about.button").addEventListener("click", () => {
     if (!state.popup){
         createPopup()
     }
-
     else{
         removePopup()
     }
 })
 
 function createPopup() {
+    // CR put at the end of the function to reflect the right state
     state.popup = true;
     const popDiv = document.createElement("div")
     popDiv.className = "popup";
@@ -135,7 +171,7 @@ function removePopup() {
     const popDiv = document.querySelector("div.popup")
     popDiv.remove();
     state.popup = false;
-} 
+}
 
 
 
@@ -153,7 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const darkMode = config.get("dark");
         buttons.forEach((button) => {
             button.style.fontFamily = fonts;
-        
+
         })
         //dark mode switch
         if (darkMode === "dark") {
@@ -171,6 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 //calc state changing functions
+// CR every function access to global var should accept the var
 function calcToScientific() {
     calcState = {...calcState, scientific: true};
     console.log("switched to scientific");

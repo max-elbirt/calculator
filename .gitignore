@@ -1,3 +1,6 @@
 .idea
 node_modules
 .vscdoe
+src/**/*.js
+src/**/*.css
+src/**/*.css.map
