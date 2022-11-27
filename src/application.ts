@@ -6,7 +6,7 @@ type stateObj = {
     popup: boolean;
 }
 
-
+//
 let state: stateObj = {
     light: false,
     opLog: false,
